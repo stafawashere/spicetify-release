@@ -1,10 +1,10 @@
-# spicetify-release
+# Spicetify Extensions
 
-These are the Spicetify extensions and scripts I run on my own Spotify. I use the Comfy theme, and after a few Spotify updates parts of it broke, so I started fixing it with my own CSS and then kept adding things I wanted. It's my personal setup. I've only tested it on macOS, with Spotify 1.3.3.264 and 1.3.4.258 and Spicetify 2.45.1, and Spotify renames its classes often enough that other versions may break some of it. Client mods like this are also a gray area under Spotify's terms of use, so use it knowing that.
+Spicetify extensions I wrote for my own Spotify, plus the scripts I use to keep them running. I use the Comfy theme, and after a Spotify update broke part of its layout I started fixing it with my own CSS, then kept adding things I wanted. I've only tested it on macOS with Spotify 1.3.3.264 and 1.3.4.258 and Spicetify 2.45.1, and Spotify renames its classes often enough that other versions may break some of it.
 
 ![Spotify with these extensions and Comfy, on an album page](docs/screenshot.png)
 
-## Extensions
+## What's in it
 
 `comfy-tweaks.js` fixes Comfy on current Spotify. Comfy sets three grid rows on the main container but Spotify now has four, and without the fix the main view collapses to 0 px. It also slows Comfy's window-size check from every frame to every 2 seconds. It assumes you have the Dynamic Search Bar snippet from Marketplace turned on, because it makes up for the 16 px that snippet shifts the page by. Without the snippet I'd expect the bottom 16 px of the window to get cut off.
 
@@ -18,14 +18,9 @@ These are the Spicetify extensions and scripts I run on my own Spotify. I use th
 
 `schemes/comfy-extra-schemes.json` has eight extra Comfy color schemes I made. It's in the shape Marketplace stores a theme's schemes in, keyed by scheme name. To use them with a copy of Comfy you installed by hand, each one becomes a `[Name]` section of `key = value` lines in Comfy's `color.ini`.
 
-## Requirements
+## Installing it
 
-- macOS, and the Spotify desktop app from spotify.com
-- Spicetify with Marketplace
-- The Comfy theme and the Dynamic Search Bar snippet, both from Marketplace, for `comfy-tweaks.js`
-- Node 22 or newer, only for `tools/cdp.mjs` and `tools/shot.mjs`
-
-## Install
+You need macOS, the Spotify desktop app from spotify.com, and Spicetify with Marketplace. `comfy-tweaks.js` also needs the Comfy theme and the Dynamic Search Bar snippet, both from Marketplace. The scripts in `tools/` that talk to the running app need Node 22 or newer.
 
 If you don't have Spicetify yet, the official installer is below. Say yes when it asks about Marketplace. Its installer applies Spicetify once, and Spotify restarts with Marketplace in the sidebar. If it doesn't show up, run `spicetify backup apply`. There's more in the [Spicetify docs](https://spicetify.app/docs/getting-started).
 
@@ -49,7 +44,7 @@ To remove everything it added:
 ./uninstall.sh
 ```
 
-## Auto-heal
+## Keeping it applied after Spotify updates
 
 Every Spotify update replaces the app files, which removes Spicetify. `tools/autoheal.sh` checks for that and runs `spicetify backup apply` again when it's needed. To have it run on its own:
 
@@ -75,7 +70,7 @@ I use it for a patch of my own. It's gitignored, and without it the script only 
 
 You can run the script by hand with `bash tools/autoheal.sh` and check `tail tools/autoheal.log`. It finds Spicetify on your PATH or in `~/.spicetify`, and reads the Spotify path from `config-xpui.ini`.
 
-## Testing in the running app
+## Testing it in the running app
 
 ```bash
 sh tools/debug-spotify.sh
@@ -84,6 +79,10 @@ node tools/shot.mjs out.png
 ```
 
 `debug-spotify.sh` quits Spotify and opens it again with the DevTools port on 9222, so it stops whatever is playing. `cdp.mjs` runs an expression in the page (or a file, with `-f file.js`) and prints the result. `shot.mjs` saves a screenshot at the window's full resolution, and a second argument clips it to that many pixels from the top. After editing an extension, `spicetify refresh -e` and then `node tools/cdp.mjs "location.reload()"` load the change without a full apply.
+
+## A note on Spotify's terms
+
+Client mods like these are a gray area under Spotify's terms of use. This is my personal setup on my own account, so use it knowing that.
 
 ## Credits
 
