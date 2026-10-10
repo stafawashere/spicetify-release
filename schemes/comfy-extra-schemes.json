@@ -1,0 +1,66 @@
+{
+   "Midnight Glass": {
+      "text": "EDEEF3", "subtext": "9AA0B4", "main": "0E1016", "main-elevated": "171A23", "main-transition": "0B0D12",
+      "highlight": "1F2330", "highlight-elevated": "262B3A", "sidebar": "0B0D12", "player": "090A0F", "card": "13151D",
+      "shadow": "05060A", "selected-row": "E6E8F0", "button": "8B9CFF", "button-active": "A3B1FF", "button-disabled": "3A4166",
+      "tab-active": "1F2330", "notification": "8B9CFF", "notification-error": "E5606B", "misc": "2A2F40", "play-button": "8B9CFF",
+      "play-button-active": "A3B1FF", "progress-fg": "8B9CFF", "progress-bg": "2A2F40", "heart": "F07A8C", "pagelink-active": "A3B1FF",
+      "radio-btn-active": "8B9CFF"
+   },
+   "Obsidian Gold": {
+      "text": "F3EFE6", "subtext": "A8A193", "main": "111012", "main-elevated": "1A191C", "main-transition": "0C0B0D",
+      "highlight": "25231F", "highlight-elevated": "2C2A25", "sidebar": "0C0B0D", "player": "0A090B", "card": "161518",
+      "shadow": "050405", "selected-row": "F3EFE6", "button": "D4B26A", "button-active": "E2C88E", "button-disabled": "5A4D30",
+      "tab-active": "25231F", "notification": "D4B26A", "notification-error": "E06C5A", "misc": "34302A", "play-button": "D4B26A",
+      "play-button-active": "E2C88E", "progress-fg": "D4B26A", "progress-bg": "34302A", "heart": "E07A6A", "pagelink-active": "E2C88E",
+      "radio-btn-active": "D4B26A"
+   },
+   "Matcha": {
+      "text": "E8EEE6", "subtext": "9FAD9C", "main": "141815", "main-elevated": "1C211D", "main-transition": "101311",
+      "highlight": "252B26", "highlight-elevated": "2C332D", "sidebar": "101311", "player": "0D100E", "card": "181C19",
+      "shadow": "070908", "selected-row": "E8EEE6", "button": "9CC48A", "button-active": "B4D6A4", "button-disabled": "4A5C42",
+      "tab-active": "252B26", "notification": "9CC48A", "notification-error": "E07070", "misc": "2F3830", "play-button": "9CC48A",
+      "play-button-active": "B4D6A4", "progress-fg": "9CC48A", "progress-bg": "2F3830", "heart": "E58A8A", "pagelink-active": "B4D6A4",
+      "radio-btn-active": "9CC48A"
+   },
+   "Rosewater": {
+      "text": "F4EAF0", "subtext": "B39DAE", "main": "17121A", "main-elevated": "201A24", "main-transition": "120E15",
+      "highlight": "2A2230", "highlight-elevated": "32293A", "sidebar": "120E15", "player": "0E0B10", "card": "1B151E",
+      "shadow": "08060A", "selected-row": "F4EAF0", "button": "F2A7C3", "button-active": "F7C1D5", "button-disabled": "6A4458",
+      "tab-active": "2A2230", "notification": "F2A7C3", "notification-error": "F07178", "misc": "3A2E40", "play-button": "F2A7C3",
+      "play-button-active": "F7C1D5", "progress-fg": "F2A7C3", "progress-bg": "3A2E40", "heart": "FF8FA3", "pagelink-active": "F7C1D5",
+      "radio-btn-active": "F2A7C3"
+   },
+   "Arctic": {
+      "text": "EAF2F7", "subtext": "98A9B6", "main": "101418", "main-elevated": "171C22", "main-transition": "0C0F12",
+      "highlight": "1F262E", "highlight-elevated": "263039", "sidebar": "0C0F12", "player": "0A0C0F", "card": "141920",
+      "shadow": "050608", "selected-row": "EAF2F7", "button": "7FD4E8", "button-active": "A2E2F0", "button-disabled": "355863",
+      "tab-active": "1F262E", "notification": "7FD4E8", "notification-error": "EB6F76", "misc": "28323C", "play-button": "7FD4E8",
+      "play-button-active": "A2E2F0", "progress-fg": "7FD4E8", "progress-bg": "28323C", "heart": "F28B93", "pagelink-active": "A2E2F0",
+      "radio-btn-active": "7FD4E8"
+   },
+   "Ember": {
+      "text": "F5ECE6", "subtext": "B3A399", "main": "141110", "main-elevated": "1D1917", "main-transition": "0F0D0C",
+      "highlight": "28221F", "highlight-elevated": "302925", "sidebar": "0F0D0C", "player": "0C0A09", "card": "181412",
+      "shadow": "060505", "selected-row": "F5ECE6", "button": "F08A4B", "button-active": "F5A577", "button-disabled": "6B4330",
+      "tab-active": "28221F", "notification": "F08A4B", "notification-error": "E5534B", "misc": "362D28", "play-button": "F08A4B",
+      "play-button-active": "F5A577", "progress-fg": "F08A4B", "progress-bg": "362D28", "heart": "F06B6B", "pagelink-active": "F5A577",
+      "radio-btn-active": "F08A4B"
+   },
+   "Lavender Haze": {
+      "text": "EEEAF8", "subtext": "A69FBF", "main": "16141F", "main-elevated": "1E1B2A", "main-transition": "110F18",
+      "highlight": "282435", "highlight-elevated": "2F2A3E", "sidebar": "110F18", "player": "0E0C14", "card": "1A1724",
+      "shadow": "07060B", "selected-row": "EEEAF8", "button": "B79CFF", "button-active": "CBB8FF", "button-disabled": "4E4470",
+      "tab-active": "282435", "notification": "B79CFF", "notification-error": "F07A8A", "misc": "342F45", "play-button": "B79CFF",
+      "play-button-active": "CBB8FF", "progress-fg": "B79CFF", "progress-bg": "342F45", "heart": "FF8FB1", "pagelink-active": "CBB8FF",
+      "radio-btn-active": "B79CFF"
+   },
+   "Paper": {
+      "text": "1C1B19", "subtext": "6B665D", "main": "F6F4EF", "main-elevated": "FFFFFF", "main-transition": "EFECE6",
+      "highlight": "E6E2DA", "highlight-elevated": "DED9CF", "sidebar": "EFECE6", "player": "EAE6DE", "card": "FFFFFF",
+      "shadow": "C9C3B8", "selected-row": "1C1B19", "button": "2F6F5E", "button-active": "3D8A75", "button-disabled": "A9B8B2",
+      "tab-active": "E6E2DA", "notification": "2F6F5E", "notification-error": "C2453D", "misc": "D6D1C7", "play-button": "2F6F5E",
+      "play-button-active": "3D8A75", "progress-fg": "2F6F5E", "progress-bg": "D6D1C7", "heart": "C2453D", "pagelink-active": "3D8A75",
+      "radio-btn-active": "2F6F5E"
+   }
+}
