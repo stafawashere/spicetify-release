@@ -48,7 +48,7 @@ notify() {
    osascript -e "display notification \"$1\" with title \"Spotify auto-heal\"" >/dev/null 2>&1
 }
 
-# shellcheck disable=SC2329
+# shellcheck disable=SC2317,SC2329
 trim_log() {
    [[ -f "$LOG_FILE" ]] || return 0
 
@@ -106,7 +106,7 @@ acquire_lock() {
    return 1
 }
 
-# shellcheck disable=SC2329
+# shellcheck disable=SC2317,SC2329
 on_exit() {
    if $owns_lock; then
       rm -rf "$LOCK_DIR"
