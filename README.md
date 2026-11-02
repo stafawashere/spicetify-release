@@ -6,21 +6,28 @@ Spicetify extensions I wrote for my own Spotify, plus the scripts I use to keep 
 
 ## What's in it
 
-`comfy-tweaks.js` fixes Comfy on current Spotify. Comfy sets three grid rows on the main container but Spotify now has four, and without the fix the main view collapses to 0 px. It also slows Comfy's window-size check from every frame to every 2 seconds. It assumes you have the Dynamic Search Bar snippet from Marketplace turned on, because it makes up for the 16 px that snippet shifts the page by. Without the snippet I'd expect the bottom 16 px of the window to get cut off.
+Everything is in one file, `extensions/arsked.js`. It used to be twelve extensions, and each one ran its own observer on the page, its own startup poll and its own player listeners. Now one small core owns a single observer each for `<body>`, `<head>` and `<html>`, one startup poll, and one listener per player event and for route changes, and every part subscribes to those. Each part still runs inside its own function, so an error in one doesn't stop the others. `window.Arsked` exposes the stats the parts keep for measuring.
 
-`album-ambience.js` tints the theme with colors from the current album cover and puts a blurred copy of the cover behind the whole window. The cover in the now playing bar turns into a spinning disc, and the play button pulses on the beats from Spotify's audio analysis. Both stop when Reduce Motion is on in macOS. The animations use stepped timing, because a smooth animation makes Chromium redraw the whole window on every frame. On my Mac the smooth disc cost about 50% of a core and the stepped one about 13%.
+The parts, in load order:
 
-`folder-images.js` gives playlist folders in Your Library a 2x2 grid of covers from the playlists inside them. You can right-click a folder and pick "Choose folder image" to use your own picture instead.
-
-`library-hider.js` adds "Hide from library" to the right-click menu for DJ and Local Files, and a "Show" item to bring them back.
-
-`library-moods.js` puts a colored dot on each playlist in Your Library for its mood (Hype, Intense, Chill or Moody), from the average energy and valence of its first 100 tracks. It also fades out anything you haven't played or added in 90 days.
+- `albumAmbience` tints the theme with colors from the current album cover and puts a blurred copy of the cover behind the whole window. The cover in the now playing bar turns into a spinning disc, and the play button pulses on the beats from Spotify's audio analysis. It also styles the lyrics view. Both stop when Reduce Motion is on in macOS.
+- `comfyTweaks` fixes Comfy on current Spotify. Comfy sets three grid rows on the main container but Spotify now has four, and without the fix the main view collapses to 0 px. It also slows Comfy's window-size check from every frame to every 2 seconds, and makes up for the 16 px that the Dynamic Search Bar snippet shifts the page by.
+- `folderImages` gives playlist folders in Your Library a 2x2 grid of covers from the playlists inside them. You can right-click a folder and pick "Choose folder image" to use your own picture instead.
+- `libraryHider` adds "Hide from library" to the right-click menu for DJ and Local Files, and a "Show" item to bring them back.
+- `libraryMoods` puts a colored dot on each playlist in Your Library for its mood (Hype, Intense, Chill or Moody), from the average energy and valence of its first 100 tracks. It also fades out anything you haven't played or added in 90 days.
+- `libraryOrder` sorts the Your Library grid by kind: folders first, then playlists, collections, albums, artists, shows, episodes and concerts.
+- `libraryPicker` redesigns the Your Library header and its filter picker.
+- `liquidGlass` adds glass surfaces, drifting color blobs, the Home filter capsule and the Now Playing card stack.
+- `playerGlass` gives the player bar a glass look that pulses with the album beats.
+- `searchGlass` restyles the search field in the top bar.
+- `spotifyMotion` retimes Spotify's own transitions with springs and adds press depth, route reveal and cover settle. It also runs the one 125 ms timer that steps every always-on animation, because any running animation makes Chromium redraw the whole window on every frame.
+- `styleEngine` compiles the `[class*=...]` selectors in these styles into plain class lists, which match much faster.
 
 `schemes/comfy-extra-schemes.json` has eight extra Comfy color schemes I made. It's in the shape Marketplace stores a theme's schemes in, keyed by scheme name. To use them with a copy of Comfy you installed by hand, each one becomes a `[Name]` section of `key = value` lines in Comfy's `color.ini`.
 
 ## Installing it
 
-You need macOS, the Spotify desktop app from spotify.com, and Spicetify with Marketplace. `comfy-tweaks.js` also needs the Comfy theme and the Dynamic Search Bar snippet, both from Marketplace. The scripts in `tools/` that talk to the running app need Node 22 or newer.
+You need macOS, the Spotify desktop app from spotify.com, and Spicetify with Marketplace. `arsked.js` also needs the Comfy theme and the Dynamic Search Bar snippet, both from Marketplace. The scripts in `tools/` that talk to the running app need Node 22 or newer.
 
 If you don't have Spicetify yet, the official installer is below. Say yes when it asks about Marketplace. Its installer applies Spicetify once, and Spotify restarts with Marketplace in the sidebar. If it doesn't show up, run `spicetify backup apply`. There's more in the [Spicetify docs](https://spicetify.app/docs/getting-started).
 
@@ -36,7 +43,7 @@ Then clone this repo and run the installer from its folder:
 ./install.sh
 ```
 
-It symlinks the five extensions into Spicetify's `Extensions` folder, adds them to the `extensions` line of `config-xpui.ini` and runs `spicetify apply`, which restarts Spotify. It finds the config folder through `spicetify` itself, so it needs `spicetify` on your PATH. Because they're symlinks, a `git pull` followed by `spicetify apply` is enough to update. Use `--copy` if you'd rather have copies, and `--no-apply` to skip the apply. Running it again doesn't add anything twice. `config-xpui.example.ini` shows what my config looks like with only these extensions in it.
+It symlinks `arsked.js` into Spicetify's `Extensions` folder, adds it to the `extensions` line of `config-xpui.ini` and runs `spicetify apply`, which restarts Spotify. It finds the config folder through `spicetify` itself, so it needs `spicetify` on your PATH. Because they're symlinks, a `git pull` followed by `spicetify apply` is enough to update. Use `--copy` if you'd rather have copies, and `--no-apply` to skip the apply. Running it again doesn't add anything twice. `config-xpui.example.ini` shows what my config looks like with only this extension in it.
 
 To remove everything it added:
 
