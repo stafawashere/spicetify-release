@@ -4,7 +4,7 @@
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
-EXTENSIONS=(album-ambience.js comfy-tweaks.js folder-images.js library-hider.js library-moods.js)
+EXTENSIONS=(arsked.js)
 AGENT_LABEL="${AUTOHEAL_LABEL:-local.spicetify-autoheal}"
 AGENT_PLIST="$HOME/Library/LaunchAgents/$AGENT_LABEL.plist"
 
